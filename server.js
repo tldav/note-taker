@@ -20,6 +20,14 @@ app.get("/api/notes", (req, res) => {
 	res.sendfile(path.join(__dirname, "/db/db.json"));
 });
 
-app.post("/api/notes", (req, res) => {});
+app.post("/api/notes", (req, res) => {
+	const newNote = req.body;
+
+	fs.appendFile("/db/db.json", newNote, (err) => {
+		if (err) throw err;
+	});
+
+	res.json(newNote);
+});
 
 app.listen(PORT, () => console.log(`Listening on port:${PORT}....`));
