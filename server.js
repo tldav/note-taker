@@ -8,6 +8,24 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// class Note {
+// 	constructor() {
+// 		this.id = id;
+// 	}
+
+// 	readNote() {
+// 		return fs.readFile("/db/db.json", "utf8", (err) => {
+// 			if (err) throw err;
+// 		});
+// 	}
+
+// 	writeNote(note) {
+// 		return fs.writeFile("/db/db.json", note, (err) => {
+// 			if (err) throw err;
+// 		});
+// 	}
+// }
+
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "/public/index.html"));
 });
@@ -23,11 +41,11 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 
-	fs.appendFile("/db/db.json", newNote, (err) => {
+	fs.writeFile("/db/db.json", json.stringify(newNote), (err) => {
 		if (err) throw err;
 	});
 
-	res.json(newNote);
+	return res.json(newNote);
 });
 
 app.listen(PORT, () => console.log(`Listening on port:${PORT}....`));
