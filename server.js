@@ -24,13 +24,26 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 
-	// fs.appendFile("/db/db.json", json.stringify(newNote), (err) => {
-	// 	if (err) throw err;
-	// });
+	console.log(req.body);
 
 	noteFile.push(newNote);
+
+	const idTest = noteFile[2];
+
+	idTest.id = 3;
 
 	return res.json(newNote);
 });
 
+// app.delete("/api/notes/:id", (req, res) => {});
+
 app.listen(PORT, () => console.log(`Listening on port:${PORT}....`));
+
+// const obj = {
+// 	key1: "value1",
+// 	key2: "value2"
+// };
+
+// obj.key3 = "value3";
+
+// console.log(obj);
