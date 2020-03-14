@@ -5,6 +5,10 @@ const noteFile = require("./db/db.json");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+let id = noteFile[0].id;
+
+console.log(id);
+
 app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,13 +28,11 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 
-	console.log(req.body);
+	for (let i = 0; i < noteFile.length; i++) {
+		id++;
+	}
 
 	noteFile.push(newNote);
-
-	const idTest = noteFile[2];
-
-	idTest.id = 3;
 
 	return res.json(newNote);
 });
@@ -38,12 +40,3 @@ app.post("/api/notes", (req, res) => {
 // app.delete("/api/notes/:id", (req, res) => {});
 
 app.listen(PORT, () => console.log(`Listening on port:${PORT}....`));
-
-// const obj = {
-// 	key1: "value1",
-// 	key2: "value2"
-// };
-
-// obj.key3 = "value3";
-
-// console.log(obj);
