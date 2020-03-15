@@ -22,4 +22,4 @@ Not accepting pull requests at this time.
 
 ![avatar](https://avatars0.githubusercontent.com/u/58016756?v=4)
 
-[![Generic badge](https://img.shields.io/badge/note-taker--purple.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/notetaker--purple.svg)](https://shields.io/)
