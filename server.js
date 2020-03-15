@@ -35,6 +35,16 @@ app.post("/api/notes", (req, res) => {
 	return res.json(newNote);
 });
 
-app.delete("/api/notes/:id", (req, res) => {});
+app.delete("/api/notes/:id", (req, res) => {
+	const id = req.params.id;
+
+	for (i = 0; i < noteFile.length; i++) {
+		if (id == noteFile[i].id) {
+			noteFile.splice(id, 1);
+		}
+	}
+
+	return res.json(noteFile);
+});
 
 app.listen(PORT, () => console.log(`Listening on port:${PORT}....`));
