@@ -18,8 +18,6 @@ Not accepting pull requests at this time.
 
 ## Questions
 
-###### For questions, please contact me at tldavis09@yahoo.com.
-
-![avatar](https://avatars0.githubusercontent.com/u/58016756?v=4)
+###### For questions, please contact me at tldavis09@yahoo.com
 
 [![Generic badge](https://img.shields.io/badge/notetaker--purple.svg)](https://shields.io/)
